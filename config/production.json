@@ -1,0 +1,6 @@
+{
+  "server": {
+    "host": "riot.sonumi.com",
+    "port": 80
+  }
+}
