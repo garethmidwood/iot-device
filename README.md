@@ -8,7 +8,7 @@ It will connect to a meteor.js server, with the URL and port defined in the conf
 Just run `node index.js`
 
 ## How do I use a different environment?
-You can set the environment like so `export NODE_ENV=uat70`
+You can set the environment like so `export NODE_ENV=uat70`, then run the script as normal
 
 Note that this is set for the duration of your current terminal window, so if you want to switch back you'll either need to open a new shell or unset the environment variable - `unset NODE_ENV`
 
