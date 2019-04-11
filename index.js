@@ -43,12 +43,18 @@ ddpclient.connect(function(error) {
     var observer = ddpclient.observe(feedName);
 
     // when a record is added
-    observer.added = device.recordAdded;
+    observer.added = function(_id) {
+        device.recordAdded(ddpclient.collections[feedName][_id]);
+    }
 
     // when an existing record changes
-    observer.changed = device.recordChanged;
+    observer.changed = function(_id) {
+        device.recordChanged(ddpclient.collections[feedName][_id]);
+    }
 
     // when a record is removed
-    observer.removed = device.recordRemoved;
+    observer.removed = function(_id) {
+        device.recordRemoved(_id);
+    }
 });
 

@@ -2,22 +2,23 @@ class Device {
     // this is the device type, it should return a string that
     // exactly matches the name of the meteor.js collection
     deviceType() {
-        return 'options';
+        return 'led';
     }
     
     // this is called when a record is added to the collection
-    recordAdded(_id) {
-        console.log('added ' + _id);
+    // item is a json object containing the values in the DB
+    recordAdded(item) {
+        console.log('added item', item);
     }
 
     // this is called when a record in the collection is updated
-    recordChanged(_id, oldFields, clearedFields, newFields) {
-        console.log('changed ' + _id);
+    recordChanged(item) {
+        console.log('changed item', item);
     }
 
     // this is called when a record is removed from the collection
-    recordRemoved(_id, oldValue) {
-        console.log('removed ' + _id);
+    recordRemoved(_id) {
+        console.log('removed item', _id);
     }
 }
 
