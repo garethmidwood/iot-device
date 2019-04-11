@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/garethmidwood/devday-pi.git"
+    "url": "https://github.com/garethmidwood/iot-device.git"
   },
   "keywords": [
     "sonumi",
@@ -17,9 +17,9 @@
   "author": "“Gareth <“gmidwood@gmail.com”> (http://www.garethmidwood.co.uk/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/garethmidwood/devday-pi/issues"
+    "url": "https://github.com/garethmidwood/iot-device/issues"
   },
-  "homepage": "https://github.com/garethmidwood/devday-pi",
+  "homepage": "https://github.com/garethmidwood/iot-device",
   "dependencies": {
     "config": "^1.19.0",
     "ddp": "^0.11.0",

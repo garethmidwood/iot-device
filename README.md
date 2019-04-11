@@ -1,4 +1,4 @@
-# Creode IoT Device Boilerplate
+# IoT Device Boilerplate
 
 This is the boilerplate code for an IoT device running on node.js.
 
@@ -15,4 +15,4 @@ Note that this is set for the duration of your current terminal window, so if yo
 # Where do I write my code?
 The `device.js` file is laid out with the functions you need to populate.
 
-**Don't** overwrite the master branch for this, either fork the repository or create your own branch
+Either fork the repository or create your own branch (if you're a collaborator)
