@@ -1,8 +1,13 @@
-class Device {
+class OutputDevice {
     // this is the device type, it should return a string that
     // exactly matches the name of the meteor.js collection
     deviceType() {
         return 'led';
+    }
+
+    // this is the device name, it should be unique
+    deviceName() {
+        return 'LED #1';
     }
     
     // this is called when a record is added to the collection
@@ -22,4 +27,4 @@ class Device {
     }
 }
 
-module.exports = Device;
+module.exports = OutputDevice;
