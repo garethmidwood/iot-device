@@ -2,7 +2,7 @@ class OutputDevice {
     // this is the device type, it should return a string that
     // exactly matches the name of the meteor.js collection
     deviceType() {
-        return 'led';
+        return 'led1';
     }
 
     // this is the device name, it should be unique
