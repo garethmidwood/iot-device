@@ -38,6 +38,9 @@ var ddpclient = new ddp({ host: config.server.host, port: config.server.port, au
 var device = new deviceController(ddpclient);
 // the feed name (to subscribe to) should match the device type
 var feedName = device.deviceType();
+// if you setup the observer twice it'll start receiving messages twice
+// we're going to use this var to make sure that doesn't happen
+var observing = false;
 
 // connect to server
 ddpclient.connect(function(error) {
@@ -74,23 +77,27 @@ ddpclient.connect(function(error) {
       }
     );
 
-    // watch the feed for changes. 
-    // the functions below handle the different events
-    var observer = ddpclient.observe(feedName);
+    if (!observing) {
+        // watch the feed for changes. 
+        // the functions below handle the different events
+        var observer = ddpclient.observe(feedName);
 
-    // when a record is added
-    observer.added = function(_id) {
-        device.recordAdded(ddpclient.collections[feedName][_id]);
-    }
+        // when a record is added
+        observer.added = function(_id) {
+            device.recordAdded(ddpclient.collections[feedName][_id]);
+        }
 
-    // when an existing record changes
-    observer.changed = function(_id) {
-        device.recordChanged(ddpclient.collections[feedName][_id]);
-    }
+        // when an existing record changes
+        observer.changed = function(_id) {
+            device.recordChanged(ddpclient.collections[feedName][_id]);
+        }
 
-    // when a record is removed
-    observer.removed = function(_id) {
-        device.recordRemoved(_id);
+        // when a record is removed
+        observer.removed = function(_id) {
+            device.recordRemoved(_id);
+        }
+
+        observing = true;
     }
 });
 
