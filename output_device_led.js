@@ -1,4 +1,10 @@
 class OutputDevice {
+    // the device is constructed with the ddpclient, with this 
+    // you can call the Meteor methods from the control centre
+    constructor(ddpclient) {
+        this.ddpclient = ddpclient;
+    }
+
     // this is the device type, it should return a string that
     // exactly matches the name of the meteor.js collection
     deviceType() {
