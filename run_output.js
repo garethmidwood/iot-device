@@ -7,10 +7,6 @@
  **/
 var config = require('config');
 var ddp = require('ddp');
-var player = require('play-sound')({"players": ["omxplayer", "afplay"]});
-
-
-
 
 /// strip the first 2 values from the arguments as they're `node` and this script
 var args = process.argv.slice(2);
@@ -48,13 +44,17 @@ ddpclient.connect(function(error) {
     if (error) {
         // bomb out and play a sound so humans know it didn't connect
         console.log('ah crap');
-        player.play('./samples/connection_lost.mp3');
+        if (typeof device.connectionFail === 'function') {
+            device.connectionFail();
+        }
         return;
     }
 
     // audio to inform human that it's connected
     console.log('connected');
-    player.play('./samples/connected.mp3');
+    if (typeof device.connectionAccepted === 'function') {
+        device.connectionAccepted();
+    }
 
     // subscribe to the feed
     ddpclient.subscribe(
