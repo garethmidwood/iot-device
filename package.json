@@ -22,7 +22,7 @@
   "homepage": "https://github.com/garethmidwood/iot-device",
   "dependencies": {
     "config": "^1.19.0",
-    "ddp": "^0.11.0",
+    "ddp": "^0.12.1",
     "play-sound": "0.0.9"
   }
 }
